@@ -130,6 +130,7 @@ img{
     top: 0;
     left: 0;
     z-index: var(--z-fixed);
+    transition: .4s;
 }
 
 .nav{
@@ -139,8 +140,14 @@ img{
     align-items: center;
 }
 
+.logo__light{
+    color: var(--first-color);
+    letter-spacing: 10px;
+}
+
 .logo__dark{
     display: none;
+   color: var(--first-color);
 }
 
 .nav__link,
@@ -188,6 +195,30 @@ img{
 
 /* Change background header */
 
+.scroll-header{
+    background-color: var(--container-color);
+    box-shadow: 0 1px 4px hsl(var(--hue), 4%, 15%, .1);
+}
+
+.scroll-header .logo__dark{
+    display: block;
+}
+
+.scroll-header .logo__light{
+    display: none;
+}
+
+.scroll-header .nav__link{
+    color: var(--title-color);
+}
+
+.scroll-header .active-link::before{
+    background-color: var(--title-color);
+}
+
+.scroll-header .nav__toggle{
+    color: var(--title-color);
+}
 
 /*=============== HOME ===============*/
 .home{
@@ -630,21 +661,331 @@ img{
 
 
 /*=============== FOOTER ===============*/
+.footer{
+    margin-top: 6rem;
+    background-color: rgb(10, 113, 55);
+}
 
 
+.footer__container{
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    column-gap: 1rem;
+}
+
+.footer__logo{
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    font-weight: var(--font-bold);
+    letter-spacing: 3px;
+    margin-bottom: 1.25rem;
+}
+
+.footer__description{
+    font-size: var(--h2-font-size);
+    color: hsl(var(--hue), 8%, 75%);
+    margin-bottom: 2.3rem;
+}
+
+.footer__social{
+    column-gap: .75rem;
+    display: flex;
+}
+
+.footer__social-link{
+    display: inline-block;
+    background-color: var(--container-color);
+    width: 44px;
+    height: 44px;
+    line-height: 42px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: #fff;
+    border: 3px solid;
+    transition: .4s;
+}
+
+.footer__social-link:nth-child(2){
+    background-color: #56adcd;
+    border-color: #56adcd;
+}
+
+.footer__social-link:nth-child(1){
+    background-color: #b58617;
+    border-color: #b58617;
+}
+.footer__social-link:nth-child(3){
+    background-color: #89158d;
+    border-color: #89158d;
+}
+
+.footer__social-link:hover{
+    background-color: transparent;
+   
+}
+
+.footer__title{
+    font-size: var(--h3-font-size);
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.footer__links{
+    display: grid;
+    row-gap: .35rem;
+}
+
+.footer__link{
+    font-size: var(--normal-font-size);
+    color: hsl(var(--hue), 8%, 75%);
+    transition: .3s;
+}
+
+.footer__link:hover{
+    color: #fff;
+}
+
+.footer__copy{
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-size: var(--normal-font-size);
+    margin-top: 6rem;
+}
 /*=============== SCROLL BAR ===============*/
 
 
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
-@media screen and (max-width:1206px) {}
+@media screen and (max-width:1206px) {
+    .container{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
 
-@media screen and (max-width:1024px) {}
+    .about__course-item{
+        padding: 16px 18px;
+        height: 80px;
+    }
+
+    .about__data{
+        margin-top: 5rem;
+    }
+
+   
+
+}
+
+@media screen and (max-width:1024px) {
+    .container{
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .home{
+        min-height: 868px;
+    }
+
+    .home__data{
+        max-width: 550px;
+
+    }
+
+    .about__container{
+        column-gap: 3rem;
+        grid-template-columns: 1fr;
+    }
+
+    .about__description{
+        padding-right: 0;
+
+    }
+
+    .about__group{
+        justify-self: center;
+    }
+
+    .about__banner{
+        margin-top: -110px;
+    }
+
+    .about__thumb-img{
+        width: 270px;
+    }
+
+    .about__banner-img{
+        width: 180px;
+    }
+
+    .about__students{
+        margin-top: -80px;
+        margin-left: 220px;
+    }
+
+    .association__container,
+    .newsletters__container{
+        grid-template-columns: repeat(2, 340px);
+        justify-content: center;
+    }
+
+    .newsletter__meta{
+        padding: 1rem 1.25rem;
+    }
+
+    .newsletter__more{
+        padding: .5rem 1.25rem;
+    }
+
+    .about__data{
+        margin-top: 5rem;
+    }
+
+}
 
 /* For medium devices */
-@media screen and (max-width:767px) {}
+@media screen and (max-width:767px) {
+    .nav{
+        height: var(--header-height);
+    }
 
-@media screen and (max-width:576px) {}
+    .button__header{
+        display: none;
+    }
+
+    .nav__toggle{
+        display: block;
+    }
+
+    .nav__menu{
+        position: fixed;
+        width: 100%;
+        background: var(--container-color);
+        top: -150%;
+        left: 0;
+        padding: 3.5rem 0;
+        z-index: var(--z-fixed);
+        border-radius: 0 0 .4rem .4rem;
+        transition: .4s;
+    }
+
+    .nav__list{
+        flex-direction: column;
+        row-gap: 1.5rem;
+        align-items: center;
+    }
+
+    .nav__close{
+        display: block;
+        font-size: 1.8rem;
+        position: absolute;
+        top: .5rem;
+        right: .7rem;
+        cursor: pointer;
+    }
+
+    .nav__link{
+        color: var(--title-color);
+    }
+
+    .active-link::before{
+        background-color: var(--title-color);
+    }
+
+    .show-menu{
+        top: 0;
+    }
+
+    .home{
+        min-height: 700px;
+        padding-top: 14rem;
+    }
+
+    .about__data{
+        margin-top: 6rem;
+    }
+
+    .about__courses{
+        display: none;
+    }
+
+    .association__container,
+    .newsletters__container{
+        grid-template-columns: 320px;
+    }
+
+    .association__item{
+        padding: 1.25rem;
+    }
+
+    .brand__container{
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 2.5rem;
+    }
+
+    .footer__container{
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        justify-items: start;
+    }
+
+    .footer__copy{
+        margin-top: 4.5rem;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .home__description{
+        padding-right: 0;
+    }
+
+    .about__thumb-img{
+        width: 240px;
+    }
+
+    .about__banner-img{
+        width: 160px;
+    }
+
+    .about__students{
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    .brand__container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 /* For small devices */
-@media screen and (max-width:350px) {}
+@media screen and (max-width:350px) {
+    .container{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .home{
+        min-height: 668px;  
+    }
+
+    .home__subtitle{
+        font-size: var(--normal-font-size);
+    }
+
+    .home__title{
+        font-size: var(--h1-font-size);
+    }
+
+    .home__description{
+        font-size: var(--normal-font-size);
+    }
+
+    .about__banner-img{
+        width: 140px;
+    }
+
+    .association__container,
+    .newsletters__container{
+        grid-template-columns: 1fr;
+    }
+}
